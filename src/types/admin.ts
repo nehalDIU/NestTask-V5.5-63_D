@@ -1,0 +1,1 @@
+export type AdminTab = 'users' | 'tasks' | 'admin-tasks' | 'announcements';

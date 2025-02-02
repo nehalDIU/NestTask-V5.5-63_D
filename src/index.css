@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+
+/* Custom utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Rest of your existing CSS... */
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Custom utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Glass morphism effects */
+.glass-effect {
+  @apply bg-white/80 dark:bg-gray-800/80;
+  backdrop-filter: blur(8px);
+}
+
+.glass-card {
+  @apply bg-white/70 dark:bg-gray-800/70;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+/* Custom gradients */
+.bg-gradient-custom {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent;
+}
+
+/* Custom shadows */
+.shadow-custom {
+  @apply shadow-lg dark:shadow-gray-900/20;
+}
+
+.shadow-up {
+  @apply shadow-md dark:shadow-gray-900/20;
+}
+
+/* Dark mode transitions */
+.dark-transition {
+  @apply transition-colors duration-200;
+}
+
+/* Dark mode specific styles */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.dark .bg-white {
+  @apply bg-gray-800 text-gray-100;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-900;
+}
+
+.dark .bg-gray-100 {
+  @apply bg-gray-800;
+}
+
+.dark .text-gray-900 {
+  @apply text-gray-100;
+}
+
+.dark .text-gray-800 {
+  @apply text-gray-200;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+/* Remove circular dependency by using direct color value */
+.dark .text-gray-500 {
+  color: rgb(107 114 128);
+}
+
+.dark .border-gray-100 {
+  @apply border-gray-700;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  @apply hover:bg-gray-700;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  @apply hover:bg-gray-700;
+}
+
+.dark .shadow-sm {
+  @apply shadow-gray-900/20;
+}
+
+.dark .shadow-lg {
+  @apply shadow-gray-900/30;
+}
+
+/* Task card dark mode */
+.dark .task-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Button dark mode */
+.dark .btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white;
+}
+
+.dark .btn-secondary {
+  @apply bg-gray-700 hover:bg-gray-600 text-gray-100;
+}
+
+/* Input dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  @apply bg-gray-700 border-gray-600 text-gray-100;
+  @apply focus:border-blue-500 focus:ring-blue-500;
+}
+
+/* Calendar dark mode */
+.dark .calendar-day {
+  @apply bg-gray-800 text-gray-100;
+  @apply hover:bg-gray-700;
+}
+
+.dark .calendar-day.active {
+  @apply bg-blue-600 text-white;
+}
+
+/* Navigation dark mode */
+.dark .nav-item {
+  @apply text-gray-400 hover:text-gray-100;
+}
+
+.dark .nav-item.active {
+  @apply text-blue-400;
+}
+
+/* Modal dark mode */
+.dark .modal {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Notification dark mode */
+.dark .notification {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Profile menu dark mode */
+.dark .profile-menu {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Search bar dark mode */
+.dark .search-bar {
+  @apply bg-gray-700 text-gray-100;
+  @apply placeholder-gray-400;
+}
+
+/* Stats card dark mode */
+.dark .stats-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Task category dark mode */
+.dark .task-category {
+  @apply bg-gray-800 border-gray-700;
+  @apply hover:bg-gray-700;
+}
+
+.dark .task-category.active {
+  @apply bg-blue-600 text-white;
+}
