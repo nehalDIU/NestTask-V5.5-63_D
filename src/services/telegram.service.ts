@@ -5,7 +5,7 @@ import type { Announcement } from '../types/announcement';
 const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 const TELEGRAM_API = TELEGRAM_BOT_TOKEN ? `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}` : '';
-const APP_DOMAIN = 'https://nesttask.vercel.app';
+const APP_DOMAIN = 'https://nesttask-v55.vercel.app/';
 
 /**
  * Sends a message to Telegram with optional photo attachment
@@ -128,17 +128,17 @@ export async function sendTaskNotification(task: Task) {
     return withLinks.replace(/\n/g, '\n');
   };
 
-  const message = `━━━━━━━━━ NestTask ━━━━━━━━━
+  const message = `━━━━━━━━━ Title ━━━━━━━━━
 📌 <b>${task.name}</b>
 ━━━━━━━━━━━━━━━━━━━━━
 📝 <b>Description</b>
 ${processDescription(task.description)}
-━━━━━━━━━ Details ━━━━━━━━━
+━━━━━━━━ Details ━━━━━━━━
 🏷️ <b>Category:</b> #${task.category}
 📅 <b>Due Date:</b> ${formatDate(new Date(task.dueDate), 'MMMM d, yyyy')}
 
-━━━━━━━━━ Links ━━━━━━━━━
-🌐 <b>View Task:</b> ${APP_DOMAIN}
+━━━━━━━View Task━━━━━━━━
+🌐 ${APP_DOMAIN}
 ━━━━━━━━━━━━━━━━━━━━━
 <i>Powered by NestTask</i>${task.isAdminTask ? ' ⚡️' : ''}`;
 
@@ -167,8 +167,8 @@ export async function sendAnnouncementNotification(announcement: Announcement) {
 
 ${announcement.content}
 
-━━━━━━━━━ Details ━━━━━━━━━
-🔗 <b>View More:</b> ${APP_DOMAIN}
+━━━━━━━View Task━━━━━━━━
+🌐 ${APP_DOMAIN}
 ━━━━━━━━━━━━━━━━━━━━━
 <i>Powered by NestTask</i>`;
 
