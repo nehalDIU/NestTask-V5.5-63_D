@@ -53,7 +53,7 @@ export async function sendTelegramMessage(text: string, photo?: string) {
     } else {
       const requestBody = {
         chat_id: TELEGRAM_CHAT_ID,
-        message_thread_id: 204,  // Correct topic ID from the URL
+        message_thread_id: 2,  // Correct topic ID from the URL
         text,
         parse_mode: 'HTML',
         disable_web_page_preview: false,
