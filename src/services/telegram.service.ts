@@ -128,19 +128,17 @@ export async function sendTaskNotification(task: Task) {
     return withLinks.replace(/\n/g, '\n');
   };
 
-  const message = `━━━━━━━━━ Title ━━━━━━━━━
-📌 <b>${task.name}</b>
-━━━━━━━━━━━━━━━━━━━━━
-📝 <b>Description</b>
+  const message = `
+🎯 <b>${task.name}</b>
+
+💬 <b>Description:</b>
 ${processDescription(task.description)}
-━━━━━━━━ Details ━━━━━━━━
+
 🏷️ <b>Category:</b> #${task.category}
 📅 <b>Due Date:</b> ${formatDate(new Date(task.dueDate), 'MMMM d, yyyy')}
 
-━━━━━━━View Task━━━━━━━━
-🌐 ${APP_DOMAIN}
-━━━━━━━━━━━━━━━━━━━━━
-<i>Powered by NestTask</i>${task.isAdminTask ? ' ⚡️' : ''}`;
+
+🌐 <b><a href="${APP_DOMAIN}">View full details</a></b>`;
 
   return sendTelegramMessage(message);
 }
@@ -160,17 +158,14 @@ export async function sendAnnouncementNotification(announcement: Announcement) {
   // Try to find an image URL in the announcement content
   const imageUrl = announcement.content.match(/https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|webp)/i)?.[0];
 
-  const message = `━━━━━━━━━ NestTask ━━━━━━━━━
+  const message = `
 
 🎯 <b>${announcement.title}</b>
-━━━━━━━━━━━━━━━━━━━━━
 
 ${announcement.content}
 
-━━━━━━━View Task━━━━━━━━
-🌐 ${APP_DOMAIN}
-━━━━━━━━━━━━━━━━━━━━━
-<i>Powered by NestTask</i>`;
+
+🌐 <b><a href="${APP_DOMAIN}">View full details</a></b>`;
 
   return sendTelegramMessage(message, imageUrl);
 }
